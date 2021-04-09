@@ -6,5 +6,8 @@
   "repository": "git@github.com:the-1aw/bapi.git",
   "author": "the-1aw <bguilliod@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
 }
