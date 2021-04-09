@@ -1,0 +1,10 @@
+{
+  "name": "bapi",
+  "version": "1.0.0",
+  "description": "templated typescript api",
+  "main": "src/index.ts",
+  "repository": "git@github.com:the-1aw/bapi.git",
+  "author": "the-1aw <bguilliod@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
