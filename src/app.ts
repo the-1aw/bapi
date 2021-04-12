@@ -1,9 +1,9 @@
 import express from 'express';
 
+import routes from './services';
+
 const app = express();
 
-app.get('/healthz', (_, res) => {
-  res.sendStatus(200);
-});
+app.use(routes);
 
 export default app;
