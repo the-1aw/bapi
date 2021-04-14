@@ -1,5 +1,6 @@
 import app from './app';
+import { API_PORT } from './config';
 
-app.listen(process.env.PORT, () => {
-  console.log(`Listening on port ${process.env.PORT}`);
+app.listen(API_PORT, () => {
+  console.log(`Listening on port ${API_PORT}`);
 });
