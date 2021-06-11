@@ -1,6 +1,7 @@
 import app from './app';
-import { API_PORT } from './config';
+import config from './config';
+import logger from './logger';
 
-app.listen(API_PORT, () => {
-  console.log(`Listening on port ${API_PORT}`);
+app.listen(config.port, () => {
+  logger.info(`Listening on port ${config.port}`);
 });
