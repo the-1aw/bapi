@@ -7,9 +7,10 @@ const apiTransports = [
   new transports.File({ filename: winstonConfig.combinedFile }),
 ];
 
-const apiFormat = format.combine(format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }));
+const apiFormat = format.combine(format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }), format.prettyPrint());
 
 const logger = createLogger({
+  level: winstonConfig.logLevel,
   format: apiFormat,
   transports: apiTransports,
 });
