@@ -1,10 +1,10 @@
 import { createLogger, transports, format } from 'winston';
 
-import config from './config';
+import { winstonConfig } from './config';
 
 const apiTransports = [
-  new transports.File({ filename: config.winston.errorFile, level: 'error' }),
-  new transports.File({ filename: config.winston.combinedFile }),
+  new transports.File({ filename: winstonConfig.errorFile, level: 'error' }),
+  new transports.File({ filename: winstonConfig.combinedFile }),
 ];
 
 const apiFormat = format.combine(format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }));
