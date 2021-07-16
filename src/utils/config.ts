@@ -1,8 +1,8 @@
 export enum EnvModes {
-  Dev = "development",
-  Local = "local",
-  Test = "test",
-  Production = "production"
+  Dev = 'development',
+  Local = 'local',
+  Test = 'test',
+  Production = 'production',
 }
 
 export const appConfig = {
