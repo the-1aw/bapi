@@ -14,7 +14,7 @@ describe('Health endpoints', () => {
     expect(res.statusCode).toEqual(508);
     expect(res.body).toHaveProperty('status');
     expect(res.body).toHaveProperty('message');
-  })
+  });
   it('should catch an unknown error', async () => {
     const res = await request(app).get('/health/rand-errorz');
     expect(res.statusCode).toEqual(500);

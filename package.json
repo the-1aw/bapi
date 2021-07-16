@@ -12,7 +12,7 @@
     "start": "nodemon -r dotenv/config src/index.ts",
     "build": "tsc -p tsconfig-build.json",
     "pretest": "echo setup stuff go here",
-    "lint": "eslint src/**/*.ts --fix",
+    "lint": "eslint --ext ts --fix src/*",
     "format": "prettier src/**/*.ts --write",
     "prepare": "husky install",
     "pre-commit": "lint-staged"
