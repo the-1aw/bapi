@@ -1,5 +1,9 @@
 import request from 'supertest';
+
 import app from '../../app';
+
+// eslint-disable-next-line global-require
+jest.mock('ioredis', () => require('ioredis-mock/jest'));
 
 describe('Health endpoints', () => {
   it('should give a healty status', async () => {
@@ -7,6 +11,7 @@ describe('Health endpoints', () => {
     expect(res.statusCode).toEqual(200);
     expect(res.body?.status).toEqual('ok');
     expect(res.body).toHaveProperty('date');
+    expect(res.body).toHaveProperty('redis');
     expect(Number.isNaN(Date.parse(res.body?.date))).toBe(false);
   });
   it('should catch an ApiError', async () => {

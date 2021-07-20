@@ -1,5 +1,6 @@
 import app from './app';
 import { appConfig } from './utils/config';
+import redisClient from './utils/store';
 import logger from './utils/logger';
 
 const server = app.listen(appConfig.port, () => {
@@ -12,6 +13,10 @@ const gracefulShutdown = () => {
   logger.debug('SIGTERM signal received: closing HTTP server');
   server.close(() => {
     logger.debug('HTTP server closed');
+    if (redisClient) {
+      redisClient.quit();
+      logger.debug('Redis disconnected');
+    }
   });
 };
 
