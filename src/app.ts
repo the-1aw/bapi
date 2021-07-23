@@ -8,6 +8,12 @@ import routes from './services';
 const app = express();
 
 app.use(helmet() as express.RequestHandler);
+app.use(
+  express.urlencoded({
+    extended: true,
+  }) as express.RequestHandler,
+);
+app.use(express.json() as express.RequestHandler);
 
 app.use(routes);
 
