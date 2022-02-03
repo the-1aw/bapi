@@ -1,5 +1,5 @@
 import { ErrorRequestHandler } from 'express';
-import { ApiHttpError } from '../error';
+import { ApiHttpError, StatusCodes } from '../utils/error';
 
 export const errorHandlerMiddleware: ErrorRequestHandler = (error, _req, res, next) => {
   if (error instanceof ApiHttpError) {
@@ -13,7 +13,7 @@ export const errorHandlerMiddleware: ErrorRequestHandler = (error, _req, res, ne
 };
 
 export const failSafeMiddleware: ErrorRequestHandler = (error, _req, res, _next) => {
-  res.status(500).json({
+  res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
     message: error.message,
   });
 };

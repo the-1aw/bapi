@@ -1,9 +1,9 @@
 import express from 'express';
 import helmet from 'helmet';
 
-import { errorHandlerMiddleware, failSafeMiddleware } from './utils/middlewares/errorHandler';
-import errorLoggerMiddleware from './utils/middlewares/errorLogger';
-import routes from './services';
+import { errorHandlerMiddleware, failSafeMiddleware } from './middlewares/errorHandler';
+import errorLoggerMiddleware from './middlewares/errorLogger';
+import healthRouter from './health';
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(
 );
 app.use(express.json() as express.RequestHandler);
 
-app.use(routes);
+app.use('/healthz', healthRouter);
 
 app.use(errorLoggerMiddleware);
 app.use(errorHandlerMiddleware);
