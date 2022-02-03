@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import { ApiHttpError, StatusCodes } from '../utils/error';
-import redisClient from '../utils/store';
+import redisClient from '../store';
 
 // Here you can set any indicator you need to provide health informations
 // We use redisStatus here as a example.

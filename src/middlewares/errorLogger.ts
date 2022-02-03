@@ -1,5 +1,5 @@
 import { ErrorRequestHandler } from 'express';
-import logger from '../utils/logger';
+import logger from '../logger';
 
 const logErrorMiddleware: ErrorRequestHandler = (error, _req, _res, next) => {
   logger.debug(error.stack);

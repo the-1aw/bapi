@@ -1,7 +1,7 @@
 import app from './app';
 import { appConfig } from './utils/config';
-import redisClient from './utils/store';
-import logger from './utils/logger';
+import redisClient from './store';
+import logger from './logger';
 
 const server = app.listen(appConfig.port, () => {
   logger.info(`Listening on port ${appConfig.port}`);
