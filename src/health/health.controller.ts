@@ -1,17 +1,13 @@
 import { RequestHandler } from 'express';
 import { ApiHttpError, StatusCodes } from '../utils/error';
-import redisClient from '../store';
+import { getHealthStatus } from './health.service';
 
 // Here you can set any indicator you need to provide health informations
 // We use redisStatus here as a example.
 export const getHealth: RequestHandler = async (_req, res, next) => {
   try {
-    const redisStatus = await redisClient.ping();
-    res.json({
-      date: new Date(),
-      status: 'ok',
-      redis: redisStatus === 'PONG' ? 'OK' : 'KO',
-    });
+    const healthStatus = await getHealthStatus();
+    res.json(healthStatus);
   } catch (err) {
     next(err);
   }
