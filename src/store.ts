@@ -13,10 +13,6 @@ redisClient.on('connect', () => {
   logger.info('Connected to redis!');
 });
 
-redisClient.on('connect', () => {
-  logger.info('Redis client ready!');
-});
-
 redisClient.on('error', (err) => {
   logger.error(err);
 });
