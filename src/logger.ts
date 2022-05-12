@@ -1,6 +1,6 @@
 import { createLogger, transports, format } from 'winston';
 
-import { winstonConfig, appConfig, EnvModes } from './utils/config';
+import { winstonConfig, appConfig, EnvModesEnum } from './config';
 
 const apiTransports = [
   new transports.File({ filename: winstonConfig.errorFile, level: 'error' }),
@@ -15,7 +15,7 @@ const logger = createLogger({
   transports: apiTransports,
 });
 
-if (appConfig.env !== EnvModes.Production) {
+if (appConfig.env !== EnvModesEnum.PRODUCTION) {
   logger.add(
     new transports.Console({
       format: format.simple(),

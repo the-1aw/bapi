@@ -1,5 +1,5 @@
 import app from './app';
-import { appConfig } from './utils/config';
+import { appConfig } from './config';
 import redisClient from './store';
 import logger from './logger';
 
