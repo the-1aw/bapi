@@ -1,5 +1,5 @@
 import redisClient from '../store';
-import { IHealthStatus } from './types';
+import { IHealthStatus } from '../types';
 
 export const getHealthStatus = async (): Promise<IHealthStatus> => {
   const redisStatus = await redisClient.ping();

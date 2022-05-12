@@ -1,6 +1,7 @@
 import { createLogger, transports, format } from 'winston';
 
-import { winstonConfig, appConfig, EnvModesEnum } from './config';
+import { winstonConfig, appConfig } from './config';
+import { EnvModesEnum } from './types';
 
 const apiTransports = [
   new transports.File({ filename: winstonConfig.errorFile, level: 'error' }),

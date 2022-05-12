@@ -1,4 +1,4 @@
-import { IWinstonConfig } from './types';
+import { IWinstonConfig } from '../types';
 
 const winstonConfig: IWinstonConfig = {
   logLevel: process.env.LOG_LEVEL ?? 'debug',

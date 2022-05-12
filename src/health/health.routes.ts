@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { getHealth, getApiError, getUnknownError } from './health.controller';
-import { appConfig, EnvModesEnum } from '../config';
+import { appConfig } from '../config';
+import { EnvModesEnum } from '../types';
 
 const healtRouter = Router();
 

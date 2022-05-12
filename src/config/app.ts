@@ -1,4 +1,4 @@
-import { EnvModes, EnvModesEnum, IAppConfig } from './types';
+import { EnvModes, EnvModesEnum, IAppConfig } from '../types';
 
 const appConfig: IAppConfig = {
   port: Number(process.env.PORT ?? '1234'),
