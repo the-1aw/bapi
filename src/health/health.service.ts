@@ -1,11 +1,14 @@
 import redisClient from '../store';
-import { IHealthStatus } from '../types';
+import type { IGetHealthStatusOptions, IHealthStatus } from '../types';
 
-export const getHealthStatus = async (): Promise<IHealthStatus> => {
-  const redisStatus = await redisClient.ping();
-  return {
+export const getHealthStatus = async (opts: IGetHealthStatusOptions): Promise<IHealthStatus> => {
+  const apiStatus: IHealthStatus = {
     date: new Date(),
     status: 'ok',
-    redis: redisStatus === 'PONG' ? 'ok' : 'ko',
   };
+  if (opts.redis) {
+    const redisStatus = await redisClient.ping();
+    apiStatus.redis = redisStatus === 'PONG' ? 'ok' : 'ko';
+  }
+  return apiStatus;
 };
