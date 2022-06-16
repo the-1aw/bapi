@@ -7,13 +7,27 @@ import { StatusCodes } from '../types/error';
 jest.mock('ioredis', () => require('ioredis-mock/jest'));
 
 describe('Health endpoints', () => {
-  it('should give a healty status', async () => {
+  it('should give a healty status without redis', async () => {
     const res = await request(app).get('/healthz');
+    expect(res.statusCode).toEqual(StatusCodes.OK);
+    expect(res.body?.status).toEqual('ok');
+    expect(res.body).toHaveProperty('date');
+    expect(res.body).not.toHaveProperty('redis');
+    expect(Number.isNaN(Date.parse(res.body?.date))).toBe(false);
+  });
+
+  it('should give a healty status with redis', async () => {
+    const res = await request(app).get('/healthz?redis=true');
     expect(res.statusCode).toEqual(StatusCodes.OK);
     expect(res.body?.status).toEqual('ok');
     expect(res.body).toHaveProperty('date');
     expect(res.body).toHaveProperty('redis');
     expect(Number.isNaN(Date.parse(res.body?.date))).toBe(false);
+  });
+
+  it('should throw bad request error', async () => {
+    const res = await request(app).get('/healthz?redis=false');
+    expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
   });
 
   it('should catch an ApiError', async () => {

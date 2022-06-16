@@ -5,9 +5,10 @@ import { getHealthStatus } from './health.service';
 
 // Here you can set any indicator you need to provide health informations
 // We use redisStatus here as a example.
-export const getHealth: RequestHandler = async (_req, res, next) => {
+export const getHealth: RequestHandler = async (req, res, next) => {
   try {
-    const healthStatus = await getHealthStatus();
+    const shouldShowRedisStatus = req.query.redis === 'true';
+    const healthStatus = await getHealthStatus({ redis: shouldShowRedisStatus });
     res.json(healthStatus);
   } catch (err) {
     next(err);
