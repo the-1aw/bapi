@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
-import { ApiHttpError } from '../error';
-import { StatusCodes } from '../types/error';
+import { ApiHttpError } from '../utils/error';
+import { StatusCodes } from '../utils/error/types';
 import { getHealthStatus } from './health.service';
 
 // Here you can set any indicator you need to provide health informations

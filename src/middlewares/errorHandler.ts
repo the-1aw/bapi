@@ -1,6 +1,6 @@
 import { ErrorRequestHandler } from 'express';
-import { ApiHttpError } from '../error';
-import { StatusCodes } from '../types/error';
+import { ApiHttpError } from '../utils/error';
+import { StatusCodes } from '../utils/error/types';
 
 export const errorHandlerMiddleware: ErrorRequestHandler = (error, _req, res, next) => {
   if (error instanceof ApiHttpError) {

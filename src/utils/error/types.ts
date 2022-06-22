@@ -14,6 +14,7 @@ export enum StatusCodes {
   OK = 200,
   BAD_REQUEST = 400,
   I_AM_TEAPOT = 418,
+  TOO_MANY_REQUEST = 429,
   INTERNAL_SERVER_ERROR = 500,
 }
 

@@ -1,6 +1,6 @@
 import type { ValidateFunction } from 'ajv';
 import type { RequestHandler } from 'express';
-import { BadRequestError } from '../error';
+import { BadRequestError } from './error';
 
 interface ISchemaValidatorOptions {
   type: 'body' | 'query';

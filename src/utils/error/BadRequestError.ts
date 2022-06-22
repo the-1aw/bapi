@@ -1,4 +1,4 @@
-import { StatusCodes } from '../types/error';
+import { StatusCodes } from './types';
 import { ApiHttpError } from './ApiHttpError';
 
 export class BadRequestError extends ApiHttpError {

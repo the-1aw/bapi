@@ -1,4 +1,4 @@
-import { ErrorStatus, ErrorStatusNameList } from '../types/error';
+import { ErrorStatus, ErrorStatusNameList } from './types';
 
 const getErrorStatus = (statusCode: number) => {
   const statusIdx = Number(statusCode.toString()[0]);
