@@ -1,7 +1,7 @@
 import request from 'supertest';
 
 import app from '../app';
-import { StatusCodes } from '../types/error';
+import { StatusCodes } from '../types';
 
 // eslint-disable-next-line global-require
 jest.mock('ioredis', () => require('ioredis-mock/jest'));

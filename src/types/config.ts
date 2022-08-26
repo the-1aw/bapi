@@ -20,3 +20,8 @@ export interface IAppConfig {
   // Might change later but for now alway mock redis while testing
   shouldMockRedis: boolean;
 }
+
+export interface IMorganConfig {
+  enabled: boolean;
+  format: string;
+}
