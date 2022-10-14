@@ -8,7 +8,7 @@ interface ISchemaValidatorOptions {
 
 const genMiddlewareSchemaValidator = <T>(
   validator: ValidateFunction<T>,
-  opts: ISchemaValidatorOptions,
+  opts: ISchemaValidatorOptions = { type: 'query' },
 ): RequestHandler => {
   return (req, _res, next) => {
     const objectToValidate = opts.type === 'body' ? req.body : req.query;
