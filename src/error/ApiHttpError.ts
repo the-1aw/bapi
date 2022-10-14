@@ -21,7 +21,7 @@ export class ApiHttpError extends Error {
   // Explicit error type
   status: string;
 
-  constructor(statusCode: number, message: string) {
+  constructor(statusCode: number, message?: string) {
     super(message);
     this.statusCode = statusCode ?? 500;
     this.status = getErrorStatus(this.statusCode);
